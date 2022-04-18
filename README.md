@@ -4,6 +4,7 @@
 Movie-Info – is a single page application for searching movies<br> and selecting movies. The site implements search functions<br> by movie themes and titles, as well as the ability to view detailed<br> information about the movie.
 
 ---
+
 ##Technologies
 
 * HTML5
