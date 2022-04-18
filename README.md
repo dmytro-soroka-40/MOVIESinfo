@@ -6,7 +6,7 @@ Movie-Info – is a single page application for searching movies<br> and selecti
 ---
 
 
-##Technologies
+## Technologies
 
 * HTML5
 * CSS3
