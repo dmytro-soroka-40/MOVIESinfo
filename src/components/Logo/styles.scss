@@ -1,0 +1,22 @@
+.logo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 41px;
+  color: #ffffff;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: -10px;
+    z-index: -1;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: #E59C9C;
+    border-radius: 50%;
+  }
+}

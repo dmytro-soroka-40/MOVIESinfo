@@ -1,0 +1,33 @@
+.nav {
+  &__list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__item {
+    margin-left: 60px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27px;
+    color: #ffffff;
+    transition: color 0.5s ease;
+
+    &_active {
+      text-decoration: underline;
+      color: #E59C9C;
+    }
+
+    &:hover {
+      color: #E59C9C;
+      transition: color 0.5s ease;
+    }
+  }
+}

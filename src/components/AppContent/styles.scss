@@ -1,0 +1,22 @@
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .main {
+    flex: 1 0 auto;
+  }
+}
+
+.container {
+  max-width: 1230px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+section {
+  display: block;
+  padding: 40px 90px;
+  background: #FFFFFF;
+  border-radius: 20px;
+}

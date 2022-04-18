@@ -1,0 +1,69 @@
+.movie {
+  width: 180px;
+  margin-bottom: 40px;
+  margin-right: 110px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #333333;
+
+  &:nth-of-type(4n) {
+    margin-right: 0;
+  }
+
+  &__wrapper {
+    max-width: 180px;
+    margin: 0 auto;
+
+    &_genres {
+      display: flex;
+      max-width: 100%;
+      margin: 0;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 260px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0px 5px 25px rgba(119, 119, 119, 0.08));
+    border-radius: 20px;
+    object-fit: cover;
+
+    &_genres {
+      width: 185px;
+      height: 229px;
+      margin: 0 43px 0 0;
+    }
+  }
+
+  &__name {
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+
+    &_genres {
+      margin: 5px 0 55px;
+      font-size: 20px;
+    }
+  }
+
+  &__info {
+    margin-bottom: 10px;
+  }
+
+  &__genres {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &_genres {
+      font-size: 16px;
+    }
+  }
+
+  &_genres {
+    width: 50%;
+    margin-right: 0;
+  }
+}

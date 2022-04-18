@@ -1,0 +1,15 @@
+.movies-list-page {
+  &__title {
+    margin-bottom: 50px;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 41px;
+    color: #333333;
+
+    span {
+      margin-left: 25px;
+      font-weight: 700;
+      color: #E59C9C;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.footer {
+  display: flex;
+  flex: 0 0 auto;
+  margin-top: 50px;
+  padding: 45px 0;
+  background: #3A3A3A;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+  }
+
+  &__info {
+    font-weight: 700;
+    text-align: right;
+  }
+
+  &__text {
+    font-size: 20px;
+    line-height: 27px;
+
+    &_small {
+      margin-bottom: 5px;
+
+      font-size: 18px;
+    }
+
+  }
+}
