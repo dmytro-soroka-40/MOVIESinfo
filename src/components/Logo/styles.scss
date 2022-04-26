@@ -8,7 +8,7 @@
   color: #ffffff;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 2px;
     left: -10px;
@@ -16,7 +16,7 @@
     display: block;
     width: 24px;
     height: 24px;
-    background: #E59C9C;
+    background: #e59c9c;
     border-radius: 50%;
   }
 }

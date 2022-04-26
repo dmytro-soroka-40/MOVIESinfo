@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectMoviesAll } from "../../store/movies/selectors";
-import routeDetail from "./routes";
+import getOneMovie from "services/getOneMovie";
 import { Iid } from "../../types/Iid";
 import { IMovieItem } from "../../types/IMovie";
 import Loader from "../../components/Loader";
@@ -12,14 +12,22 @@ import "./styles.scss";
 
 const MoviesDetailPage = () => {
   const { id } = useParams<Iid>();
-  const history = useHistory();
-  const movies = useSelector(selectMoviesAll);
-  const [movie, setMovie] = useState<IMovieItem | null>(null);
+  const moviesList = useSelector(selectMoviesAll);
+  const [movie, setMovie] = useState<IMovieItem | undefined>(undefined);
 
   useEffect(() => {
-    const newItem = movies.find((item) => item.show.id.toString() === id);
-    newItem ? setMovie(newItem.show) : history.goBack();
-  }, [id]);
+    if (moviesList.length > 0) {
+      const movieItem = moviesList.find(
+        (item) => item.show.id.toString() === id
+      );
+      if (movieItem) setMovie(movieItem.show);
+    } else {
+      getOneMovie(id).then((response) => {
+        const movieItem = response.data;
+        setMovie(movieItem);
+      });
+    }
+  }, [id, moviesList]);
 
   return (
     <section className="movies-detail">
@@ -69,7 +77,7 @@ const MoviesDetailPage = () => {
                 <div className="movies-detail__wrap">
                   <p className="movies-detail__subtitle">Summary</p>
                   <p className="movies-detail__text">
-                    {movie.summary.replace(/((\/?[^>]+)>)/g, "")}
+                    {movie.summary.replace(/(<([^>]+)>)/gi, "")}
                   </p>
                 </div>
               )}
@@ -83,5 +91,4 @@ const MoviesDetailPage = () => {
   );
 };
 
-export { routeDetail };
 export default MoviesDetailPage;

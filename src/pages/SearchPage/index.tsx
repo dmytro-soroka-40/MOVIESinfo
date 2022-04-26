@@ -8,7 +8,6 @@ import {
   selectMoviesSearch,
   selectMoviesSearchGenre,
 } from "../../store/movies/selectors";
-import routeSearch from "./routes";
 import MoviesList from "../../components/MoviesList";
 import Loader from "../../components/Loader";
 import "./styles.scss";
@@ -64,5 +63,4 @@ const SearchPage = () => {
   );
 };
 
-export { routeSearch };
 export default SearchPage;

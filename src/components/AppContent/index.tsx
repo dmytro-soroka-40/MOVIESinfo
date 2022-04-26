@@ -1,10 +1,17 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import MainPage, { routeMain } from "../../pages/MainPage";
-import AboutPage, { routeAbout } from "../../pages/AboutPage";
-import SearchPage, { routeSearch } from "../../pages/SearchPage";
-import MoviesListPage, { routeList } from "../../pages/MoviesListPage";
-import MoviesDetailPage, { routeDetail } from "../../pages/MoviesDetailPage";
+import MainPage from "../../pages/MainPage";
+import AboutPage from "../../pages/AboutPage";
+import SearchPage from "../../pages/SearchPage";
+import MoviesListPage from "../../pages/MoviesListPage";
+import MoviesDetailPage from "../../pages/MoviesDetailPage";
+import {
+  routeMain,
+  routeAbout,
+  routeSearch,
+  routeList,
+  routeDetail,
+} from "routers/routes";
 import Header from "../Header";
 import Footer from "../Footer";
 import "./styles.scss";

@@ -1,9 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { routeMain } from "../../pages/MainPage";
-import { routeList } from "../../pages/MoviesListPage";
-import { routeAbout } from "../../pages/AboutPage";
-import { routeSearch } from "../../pages/SearchPage";
+import { routeMain, routeList, routeAbout, routeSearch } from "routers/routes";
 import "./styles.scss";
 
 const Navigation = () => (
