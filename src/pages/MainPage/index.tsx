@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectMoviesMain } from "../../store/movies/selectors";
 import { loadMoviesMain } from "../../store/movies/actions";
-import routeMain from "./routes";
 import MoviesList from "../../components/MoviesList";
 import Loader from "../../components/Loader";
 import "./styles.scss";
@@ -30,5 +29,4 @@ const MainPage = () => {
   );
 };
 
-export { routeMain };
 export default MainPage;

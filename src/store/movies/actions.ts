@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
-import { IStore } from "./types";
 import getMovies from "../../services/getMovies";
+import { IStore } from "./types";
 
 export const setMoviesMainAction = (movies: IStore["moviesMain"]) => {
   return {

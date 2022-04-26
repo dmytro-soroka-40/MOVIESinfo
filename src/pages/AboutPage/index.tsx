@@ -1,5 +1,4 @@
 import React from "react";
-import routeAbout from "./routes";
 import AboutImg from "../../assets/image/about-us-img.jpg";
 import "./styles.scss";
 
@@ -25,5 +24,4 @@ const AboutPage = () => (
   </section>
 );
 
-export { routeAbout };
 export default AboutPage;

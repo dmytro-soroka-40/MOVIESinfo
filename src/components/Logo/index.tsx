@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { routeMain } from "../../pages/MainPage";
+import { routeMain } from "routers/routes";
 import "./styles.scss";
 
 const Logo = () => (

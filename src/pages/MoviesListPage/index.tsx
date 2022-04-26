@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectMoviesComedy } from "../../store/movies/selectors";
 import { loadMoviesComedy } from "../../store/movies/actions";
-import routeList from "./routes";
 import MoviesList from "../../components/MoviesList";
 import Loader from "../../components/Loader";
 import "./styles.scss";
@@ -29,5 +28,4 @@ const MoviesListPage = () => {
   );
 };
 
-export { routeList };
 export default MoviesListPage;
