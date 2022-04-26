@@ -11,7 +11,7 @@ import {
   routeSearch,
   routeList,
   routeDetail,
-} from "routers/routes";
+} from "routes/routes";
 import Header from "../Header";
 import Footer from "../Footer";
 import "./styles.scss";

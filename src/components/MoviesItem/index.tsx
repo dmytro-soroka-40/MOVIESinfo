@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { routeDetail } from "routers/routes";
+import { routeDetail } from "routes/routes";
 import { IMovieItem } from "../../types/IMovie";
 import NoImg from "../../assets/image/no-photo.svg";
 import "./styles.scss";
