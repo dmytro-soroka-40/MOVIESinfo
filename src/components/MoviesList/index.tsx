@@ -12,7 +12,7 @@ const MoviesList: React.FC<IMoviesListParams> = ({ list, type }) => (
   <div className="movies">
     {list.length > 0 ? (
       list.map((item) => (
-        <MoviesItem item={item.show} key={item.show.id} type={type} />
+        <MoviesItem movie={item.show} key={item.show.id} type={type} />
       ))
     ) : (
       <p className="movies__empty">No movies!</p>
