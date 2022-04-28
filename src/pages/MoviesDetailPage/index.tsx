@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectMoviesAll } from "../../store/movies/selectors";
-import getOneMovie from "services/getOneMovie";
+import useMovieByParamId from "hooks/useMovieByParamId";
 import { Iid } from "../../types/Iid";
 import { IMovieItem } from "../../types/IMovie";
 import Loader from "../../components/Loader";
@@ -12,39 +10,45 @@ import "./styles.scss";
 
 const MoviesDetailPage = () => {
   const { id } = useParams<Iid>();
-  const moviesList = useSelector(selectMoviesAll);
-  const [movie, setMovie] = useState<IMovieItem | undefined>(undefined);
+  const movie = useMovieByParamId(id);
 
-  useEffect(() => {
-    if (moviesList.length > 0) {
-      const movieItem = moviesList.find(
-        (item) => item.show.id.toString() === id
-      );
-      if (movieItem) setMovie(movieItem.show);
-    } else {
-      getOneMovie(id).then((response) => {
-        const movieItem = response.data;
-        setMovie(movieItem);
-      });
-    }
-  }, [id, moviesList]);
+  const getImageLink = (image: IMovieItem["image"]) =>
+    image ? image.original : NoImg;
+
+  const getRating = (rating: IMovieItem["rating"]) =>
+    rating ? rating.average : null;
+
+  const getDate = (date: IMovieItem["premiered"]) =>
+    date ? date.slice(0, 4) : null;
+
+  const getCountry = (country: IMovieItem["network"]["country"]) =>
+    country ? country.name : null;
+
+  const getGenres = (genres: IMovieItem["genres"]) =>
+    genres ? genres.join(", ") : null;
+
+  const prepareSummary = (text: IMovieItem["summary"]) =>
+    text.replace(/(<([^>]+)>)/gi, "");
+
+  const getSummary = (summary: IMovieItem["summary"]) =>
+    prepareSummary(summary);
 
   return (
     <section className="movies-detail">
       {movie ? (
         <div className="movies-detail__wrapper">
           <img
-            src={movie.image ? movie.image.original : NoImg}
-            alt={movie.name && movie.name}
+            src={getImageLink(movie.image)}
+            alt={movie.name}
             className="movies-detail__img"
           />
           <div className="movies-detail__info">
             <div className="movies-detail__top">
-              <p className="movies-detail__name">{movie.name && movie.name}</p>
+              <p className="movies-detail__name">{movie.name}</p>
               {movie.rating.average && (
                 <div className="movies-detail__rating">
                   <img src={ImgStart} alt="star" />
-                  <span>{movie.rating.average}/10</span>
+                  <span>{getRating(movie.rating)}/10</span>
                 </div>
               )}
             </div>
@@ -53,7 +57,7 @@ const MoviesDetailPage = () => {
                 <div className="movies-detail__wrap">
                   <p className="movies-detail__subtitle">Year</p>
                   <p className="movies-detail__def">
-                    {movie.premiered.slice(0, 4)}
+                    {getDate(movie.premiered)}
                   </p>
                 </div>
               )}
@@ -61,7 +65,7 @@ const MoviesDetailPage = () => {
                 <div className="movies-detail__wrap">
                   <p className="movies-detail__subtitle">Country</p>
                   <p className="movies-detail__def">
-                    {movie.network.country.name}
+                    {getCountry(movie.network.country)}
                   </p>
                 </div>
               )}
@@ -69,7 +73,7 @@ const MoviesDetailPage = () => {
                 <div className="movies-detail__wrap">
                   <p className="movies-detail__subtitle">Genres</p>
                   <p className="movies-detail__def">
-                    {movie.genres.join(", ")}
+                    {getGenres(movie.genres)}
                   </p>
                 </div>
               )}
@@ -77,7 +81,7 @@ const MoviesDetailPage = () => {
                 <div className="movies-detail__wrap">
                   <p className="movies-detail__subtitle">Summary</p>
                   <p className="movies-detail__text">
-                    {movie.summary.replace(/(<([^>]+)>)/gi, "")}
+                    {getSummary(movie.summary)}
                   </p>
                 </div>
               )}
