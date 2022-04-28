@@ -13,12 +13,6 @@
   &__wrapper {
     max-width: 180px;
     margin: 0 auto;
-
-    &_genres {
-      display: flex;
-      max-width: 100%;
-      margin: 0;
-    }
   }
 
   &__img {
@@ -28,12 +22,6 @@
     filter: drop-shadow(0px 5px 25px rgba(119, 119, 119, 0.08));
     border-radius: 20px;
     object-fit: cover;
-
-    &_genres {
-      width: 185px;
-      height: 229px;
-      margin: 0 43px 0 0;
-    }
   }
 
   &__name {
@@ -41,11 +29,6 @@
     font-weight: 600;
     font-size: 15px;
     text-transform: uppercase;
-
-    &_genres {
-      margin: 5px 0 55px;
-      font-size: 20px;
-    }
   }
 
   &__info {
@@ -56,14 +39,31 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-
-    &_genres {
-      font-size: 16px;
-    }
   }
 
-  &_genres {
+  &.genres {
     width: 50%;
     margin-right: 0;
+
+    .movie__name {
+      margin: 5px 0 55px;
+      font-size: 20px;
+    }
+
+    .movie__genres {
+      font-size: 16px;
+    }
+
+    .movie__img {
+      width: 185px;
+      height: 229px;
+      margin: 0 43px 0 0;
+    }
+
+    .movie__wrapper {
+      display: flex;
+      max-width: 100%;
+      margin: 0;
+    }
   }
 }
